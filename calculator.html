@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  height:100vh;
+  background:linear-gradient(120deg,#0f172a,#020617);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* navbar */
+.nav{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:10px 20px;
+  border-radius:30px;
+  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  z-index:999;
+}
+.nav a{color:#aaa;text-decoration:none;}
+.nav a:hover{color:white;}
+
+/* calc */
+.calc{
+  width:320px;
+  padding:20px;
+  border-radius:30px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(30px);
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.display{
+  height:70px;
+  text-align:right;
+  font-size:32px;
+  color:white;
+  margin-bottom:20px;
+}
+
+.buttons{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+button{
+  height:60px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  color:white;
+  font-size:18px;
+}
+
+.orange{background:#ff9f0a;}
+.zero{grid-column:span 2;border-radius:30px;}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+  <a href="index.html">Home</a>
+</div>
+
+<div class="calc">
+  <div class="display" id="display">0</div>
+
+  <div class="buttons">
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="append('%')">%</button>
+    <button onclick="append('/')">÷</button>
+    <button class="orange" onclick="append('*')">×</button>
+
+    <button onclick="append('7')">7</button>
+    <button onclick="append('8')">8</button>
+    <button onclick="append('9')">9</button>
+    <button class="orange" onclick="append('-')">−</button>
+
+    <button onclick="append('4')">4</button>
+    <button onclick="append('5')">5</button>
+    <button onclick="append('6')">6</button>
+    <button class="orange" onclick="append('+')">+</button>
+
+    <button onclick="append('1')">1</button>
+    <button onclick="append('2')">2</button>
+    <button onclick="append('3')">3</button>
+    <button class="orange" onclick="calculate()">=</button>
+
+    <button class="zero" onclick="append('0')">0</button>
+    <button onclick="append('.')">.</button>
+  </div>
+</div>
+
+<script>
+let display = document.getElementById("display");
+
+function append(val){
+  if(display.innerText==="0") display.innerText=val;
+  else display.innerText+=val;
+}
+
+function clearDisplay(){
+  display.innerText="0";
+}
+
+function calculate(){
+  try{
+    display.innerText = eval(display.innerText);
+  }catch{
+    display.innerText="Error";
+  }
+}
+</script>
+
+</body>
+</html>

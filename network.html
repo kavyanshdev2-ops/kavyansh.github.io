@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Network Tool</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  height:100vh;
+  background:linear-gradient(120deg,#0f172a,#020617);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-family:monospace;
+}
+
+/* navbar */
+.nav{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:20px;
+  padding:10px 20px;
+  border-radius:30px;
+  backdrop-filter:blur(20px);
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  z-index:999;
+}
+.nav a{color:#aaa;text-decoration:none;}
+.nav a:hover{color:white;}
+
+/* card */
+.card{
+  width:80%;
+  max-width:900px;
+  height:75%;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.1);
+  display:flex;
+  flex-direction:column;
+}
+
+/* mac bar */
+.bar{
+  height:40px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:0 15px;
+}
+
+.dot{width:12px;height:12px;border-radius:50%;}
+.red{background:#ff5f57;}
+.yellow{background:#febc2e;}
+.green{background:#28c840;}
+
+.code{
+  flex:1;
+  overflow:auto;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+  <a href="index.html">Home</a>
+</div>
+
+<div class="card">
+  <div class="bar">
+    <div class="dot red"></div>
+    <div class="dot yellow"></div>
+    <div class="dot green"></div>
+  </div>
+
+  <div class="code">
+<pre>
+import requests
+
+ip = input("Enter IP: ")
+
+url = f"http://ip-api.com/json/{ip}"
+data = requests.get(url).json()
+
+print("IP:", data["query"])
+print("Country:", data["country"])
+print("City:", data["city"])
+print("ISP:", data["isp"])
+</pre>
+  </div>
+</div>
+
+</body>
+</html>
