@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>kavyansh.dev</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg1:#0f172a;
+  --bg2:#020617;
+  --text:#fff;
+  --card:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(120deg,var(--bg1),var(--bg2));
+  color:var(--text);
+}
+
+/* navbar */
+.nav{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:20px;
+  padding:10px 20px;
+  border-radius:30px;
+  backdrop-filter:blur(20px);
+  background:var(--card);
+  border:1px solid var(--border);
+  z-index:999;
+}
+
+.nav a{
+  text-decoration:none;
+  color:#aaa;
+}
+.nav a:hover{color:white;}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:120px 20px;
+}
+
+.hero{text-align:center;margin-bottom:60px;}
+h1{font-size:56px;font-family:'Space Grotesk';}
+
+/* glass */
+.glass{
+  background:var(--card);
+  backdrop-filter:blur(30px);
+  border-radius:20px;
+  padding:25px;
+  margin-bottom:30px;
+  border:1px solid var(--border);
+}
+
+/* project */
+.project{
+  margin-bottom:15px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.project a{
+  color:white;
+  text-decoration:none;
+}
+.project:hover{transform:translateX(6px);}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+  <a href="index.html">Home</a>
+  <a href="#work">Work</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="container">
+
+<div class="hero">
+  <h1>kavyansh.dev</h1>
+</div>
+
+<div class="glass">
+  <h2>About</h2>
+  <p>Student exploring DSA and iOS development.</p>
+</div>
+
+<div id="work" class="glass">
+  <h2>Work</h2>
+
+  <div class="project">
+    <a href="network.html">Network Info Tool</a>
+  </div>
+
+  <div class="project">
+    <a href="calculator.html">iOS Calculator</a>
+  </div>
+
+</div>
+
+<div id="contact" class="glass">
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+</div>
+
+</div>
+
+</body>
+</html>
